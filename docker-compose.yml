@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  jupyter:
+    image: cremarco/mantis-jupyter
+    container_name: jupyter_micare
+    env_file:
+      - ./.env
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+      GRANT_SUDO: "yes"
+    ports:
+      - "${JUPYTER_PORT}:8888"
+    restart: always  
+    volumes:
+      - ./work:/home/jovyan/work
